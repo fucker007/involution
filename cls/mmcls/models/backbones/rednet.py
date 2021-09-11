@@ -4,9 +4,9 @@ from mmcv.cnn import (ConvModule, build_conv_layer, build_norm_layer,
                       constant_init, kaiming_init)
 from mmcv.utils.parrots_wrapper import _BatchNorm
 
-from ..builder import BACKBONES
-from .base_backbone import BaseBackbone
-from ..utils.involution_cuda import involution
+#from ..builder import BACKBONES
+#from .base_backbone import BaseBackbone
+from ..utils.involution_naive import involution
 
 
 class Bottleneck(nn.Module):
@@ -257,8 +257,8 @@ class ResLayer(nn.Sequential):
         super(ResLayer, self).__init__(*layers)
 
 
-@BACKBONES.register_module()
-class RedNet(BaseBackbone):
+#@BACKBONES.register_module()
+class RedNet(nn.Module):
     """ResNet backbone.
 
     Please refer to the `paper <https://arxiv.org/abs/1512.03385>`_ for
